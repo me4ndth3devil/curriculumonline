@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Portfólio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+         :root {
+            --primary: #7c9261;
+            --primary-dark: #5b6c49;
+            --primary-light: #c8d8b3;
+            --bg: #f6f8f3;
+            --text: #37402f;
+            --white: #ffffff;
+            --shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, #d9e7c8 0%, transparent 30%),
+                radial-gradient(circle at bottom right, #bfd0a6 0%, transparent 25%),
+                linear-gradient(180deg, #f9fbf7, #eef3e7);
+            overflow-x: hidden;
+        }
+
+
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            background: rgba(91, 108, 73, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 18px 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .nav-link {
+            color: white !important;
+            padding: 10px 18px !important;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            z-index: 10000 !important;
+            border: none;
+            border-radius: 18px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .badge {
+            border-radius: 50px;
+        }
+
+
+
+        .top-box {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+
+
+            position: relative;
+            z-index: 1;
+        }
+
+
+
+        .btn-primary,
+        .btn-secondary {
+            border: none;
+            border-radius: 18px;
+            padding: 12px 25px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(124, 146, 97, 0.3);
+        }
+
+
+        .card {
+            border: none;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .info-collapse {
+            margin-bottom: 30px;
+        }
+
+        .info-collapse .card-body {
+            max-width: 1450px;
+            margin: auto;
+            border-radius: 30px;
+        }
+
+        .info-collapse img {
+            width: 700px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+
+        .info-collapse img:hover {
+            transform: scale(1.03);
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 15px;
+            border-radius: 18px !important;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .accordion-button {
+            background: #dfe8d2;
+            color: #455237 !important;
+            font-weight: 600;
+            padding: 20px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, #c7d7b2, #dde8cf);
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .footer {
+            margin-top: 120px;
+            background: linear-gradient(135deg, #4f5f3f, #6f8057, #9fb486);
+            position: relative;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .footer h4 {
+            font-size: 1.7rem;
+        }
+
+        .footer p {
+            font-size: 1rem;
+        }
+
+        .social-icon {
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 22px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+
+            <a class="navbar-brand">⟡𓆗 𓂀</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav align-items-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="portifolio.html">Portfólio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+
+
+                    <div class="dropdown me-2">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false" data-bs-auto-close="outside">
+                            <i class="fa-sharp fa-regular fa-bell"></i>
+                            Mensagens <span class="position-absolute top-0 start-100 translate-middle 
+                            badge rounded-pill badge btn-danger">+7</span>
+                        </button>
+
+                        <div class="dropdown-menu dropdown-menu-end p-3" style="width: 300px;">
+                            <div class="notif-body">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="text-success">✓</span>
+                                    <div>
+                                        <h6 class="m-0 fw-bold text-success">Mensagem 1 ⚡</h6>
+                                        <small class="text-muted">Baby, I was born this way</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="text-success">✓</span>
+                                    <div>
+                                        <h6 class="m-0 fw-bold text-success">Mensagem 2 🎬</h6>
+                                        <small class="text-muted">What Was I Made For?</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="text-success">✓</span>
+                                    <div>
+                                        <h6 class="m-0 fw-bold text-success">Mensagem 3 🦇</h6>
+                                        <small class="text-muted">I been to places you should never go</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="card-title text-center mb-4 fw-bold">Formulário de Contratação</h3>
+                        <p class="text-muted text-center small mb-4">Se você gostou do meu currículo, entre em contato
+                            comigo.</p>
+
+                        <form id="formContato">
+
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome do Recrutador ou Empresa</label>
+                                <input type="text" class="form-control" id="nome"
+                                    placeholder="Digite seu nome ou de sua empresa" required>
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="vaga" class="form-label">Proposta de vaga</label>
+                                <input type="text" class="form-control" id="vaga"
+                                    placeholder="Ex: Desenvolvedor Front-End" required>
+                            </div>
+
+
+                            <div class="mb-3">
+                                <label for="mensagem" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="mensagem" rows="4"
+                                    placeholder="Olá, gostamos do seu portfólio..." required></textarea>
+                            </div>
+
+
+                            <button type="button" class="btn btn-primary w-100" onclick="enviarEmail()">Enviar
+                                Mensagem</button>
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function enviarEmail() {
+            const nome = document.getElementById('nome').value;
+            const vaga = document.getElementById('vaga').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+
+            if (!nome || !vaga || !mensagem) {
+                alert("Por favor, preencha todos os campos antes de enviar.");
+                return;
+            }
+
+
+            const emailDestino = "fabiotiprofessor@gmail.com";
+            const assunto = encodeURIComponent(`Proposta de Vaga: ${vaga}`);
+            const corpoEmail = encodeURIComponent(`Olá, meu nome é ${nome}.\n\nMensagem/Proposta:\n${mensagem}`);
+
+
+            const urlGmail = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailDestino}&su=${assunto}&body=${corpoEmail}`;
+
+
+
+
+            window.open(urlGmail, '_blank');
+        }
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <footer class="footer py-5 text-center" style="margin-top: 120px;">
+        <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+
+            <div class="row justify-content-center w-100">
+
+                <div class="col-lg-6">
+
+                    <h4 class="text-white fw-bold mb-3">✦ Contato</h4>
+
+                    <p class="text-light opacity-75 mb-4">
+                        Email: livia.gaiani08@gmail.com
+                    </p>
+
+                    <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
+
+                        <a href="https://www.instagram.com/eilishrzx_?igsh=MWxvOHNtOTk2aHQ1eg==" class="social-icon">
+                            Instagram
+                        </a>
+
+                        <a href="https://www.facebook.com/share/1E4bRrHKwP/" class="social-icon">
+                            Facebook
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/lívia-moreira-684028412?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                            class="social-icon">
+                            LinkedIn
+                        </a>
+
+                        <a href="https://wa.link/lalx14" class="social-icon">
+                            WhatsApp
+                        </a>
+
+                        <a href="https://github.com/me4ndth3devil" class="social-icon">
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>Home</title>
+
+    <style>
+        :root {
+            --primary: #7c9261;
+            --primary-dark: #5b6c49;
+            --primary-light: #c8d8b3;
+            --bg: #f6f8f3;
+            --text: #37402f;
+            --white: #ffffff;
+            --shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, #d9e7c8 0%, transparent 30%),
+                radial-gradient(circle at bottom right, #bfd0a6 0%, transparent 25%),
+                linear-gradient(180deg, #f9fbf7, #eef3e7);
+            overflow-x: hidden;
+        }
+
+
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            background: rgba(91, 108, 73, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 18px 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+        }
+
+        .nav-link {
+            color: white !important;
+            padding: 10px 18px !important;
+            border-radius: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            z-index: 10000 !important;
+            border: none;
+            border-radius: 18px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+
+        .badge {
+            border-radius: 50px;
+        }
+
+
+
+        .top-box {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+
+
+            position: relative;
+            z-index: 1;
+        }
+
+
+
+        .btn-primary,
+        .btn-secondary {
+            border: none;
+            border-radius: 18px;
+            padding: 12px 25px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+        }
+
+        .btn-primary:hover,
+        .btn-secondary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(124, 146, 97, 0.3);
+        }
+
+
+        .card {
+            border: none;
+            border-radius: 28px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .info-collapse {
+            margin-bottom: 30px;
+        }
+
+        .info-collapse .card-body {
+            max-width: 1450px;
+            margin: auto;
+            border-radius: 30px;
+        }
+
+        .info-collapse img {
+            width: 700px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: 0.5s;
+        }
+
+        .info-collapse img:hover {
+            transform: scale(1.03);
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 15px;
+            border-radius: 18px !important;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+        }
+
+        .accordion-button {
+            background: #dfe8d2;
+            color: #455237 !important;
+            font-weight: 600;
+            padding: 20px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: linear-gradient(135deg, #c7d7b2, #dde8cf);
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+        }
+
+        .footer {
+            margin-top: 120px;
+            background: linear-gradient(135deg, #4f5f3f, #6f8057, #9fb486);
+            position: relative;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .footer h4 {
+            font-size: 1.7rem;
+        }
+
+        .footer p {
+            font-size: 1rem;
+        }
+
+        .social-icon {
+            text-decoration: none;
+            color: white;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 22px;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+
+            <a class="navbar-brand">⟡𓆗 𓂀</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav align-items-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="home.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="portifolio.html">Portfólio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+
+
+                    <div class="dropdown me-2">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false" data-bs-auto-close="outside">
+                            <i class="fa-sharp fa-regular fa-bell"></i>
+                            Mensagens <span class="position-absolute top-0 start-100 translate-middle 
+                            badge rounded-pill badge btn-danger">+7</span>
+                        </button>
+
+                        <div class="dropdown-menu dropdown-menu-end p-3" style="width: 300px;">
+                            <div class="notif-body">
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="text-success">✓</span>
+                                    <div>
+                                        <h6 class="m-0 fw-bold text-success">Mensagem 1 ⚡</h6>
+                                        <small class="text-muted">Baby, I was born this way</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="text-success">✓</span>
+                                    <div>
+                                        <h6 class="m-0 fw-bold text-success">Mensagem 2 🎬</h6>
+                                        <small class="text-muted">What Was I Made For?</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center gap-2 mb-2">
+                                    <span class="text-success">✓</span>
+                                    <div>
+                                        <h6 class="m-0 fw-bold text-success">Mensagem 3 🦇</h6>
+                                        <small class="text-muted">I been to places you should never go</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container py-5 text-center" style="margin-top: 90px;">
+
+        <div class="top-box">
+
+            <div class="d-flex flex-wrap gap-3 align-items-center">
+
+
+                <div class="dropdown">
+
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        Menu Dropdown
+                    </button>
+
+                    <ul class="dropdown-menu shadow border-0">
+
+                        <li>
+                            <a class="dropdown-item py-2" href="portifolio.html">
+                                Portfólio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item py-2" href="contato.html">
+                                Contato
+                            </a>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item py-2" href="#">
+                                Fechar
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <button class="btn btn-primary px-4" type="button" data-bs-toggle="collapse" data-bs-target="#sobreMim">
+                    Sobre mim
+                </button>
+
+                <button class="btn btn-primary px-4" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#verPerfil">
+                    Ver Perfil
+                </button>
+            </div>
+
+
+
+            <div class="collapse mt-4" id="sobreMim">
+
+                <div class="card">
+
+                    <div class="card-body fs-5">
+                        Meu apelido é Vinha, minha cor favorita é verde, meu animal favorito é o tigre. Eu ouço qualquer
+
+                        tipo de música, mas o que eu mais gosto é rock, pop e MPB Eu amo a saga Harry Potter (sou de
+                        Slytherin/Sonserina), mas não
+
+                        Gosto nem um pouco da autora e nem apoio o que ela faz. Amo tirar fotos da natureza e da
+                        paisagem. Eu me expresso através
+
+                        de poemas e desenhos. Meu trabalho dos sonhos é ser perita criminal ou trabalhar com artes.
+
+                        (qualquer tipo de arte). Sou muito fã da Billie Eilish e do Ozzy Osbourne.✨
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="collapse mt-4" id="verPerfil">
+
+                <div class="card-body">
+
+                    <div class="d-flex align-items-center gap-3">
+
+                        <img src="img/1.jpg" alt="" style="
+                width: 700px;
+                height: 400px;
+                object-fit: cover;
+                border-radius: 15px;
+            ">
+
+                        <div>
+                            <h4>Pequeno resumo sobre mim 🪲</h4>
+
+                            <h6>
+                                Meu nome é Lívia Moreira Gaiani, tenho 17 anos.
+                                Sou estudante de Desenvolvimento de Sistemas.
+                                Atualmente moro em Botucatu, São Paulo.
+                            </h6>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="container mt-4">
+        <div class="accordion" id="meuAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header"> <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse1"> Experiência Profissional </button> </h2>
+                <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="meuAccordion">
+                    <div class="accordion-body">
+                        <strong>Freelancer em Eventos:</strong>
+                        <br>
+                        Atuação em eventos corporativos, sociais e culturais, prestando suporte operacional e
+                        atendimento ao público.
+                        <br>
+                        Organização e montagem de espaços para eventos.
+                        <br>
+                        Trabalho em equipe para garantir o bom andamento das atividades.
+                        <br>
+                        Desenvolvimento de habilidades de comunicação, resolução de problemas e atendimento ao cliente.
+                        <br>
+                        <br>
+                        Proveniente da <strong>Usina Açucareira São Manoel SA</strong>
+                        <br>
+                        <strong>Atribuições:</strong> Desenvolvimento Front e Backend; manipulação com banco de Dados;
+                        prototipagem e elaboração de projetos na escola técnica SENAI.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accordion" id="meuAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header"> <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse2"> Habilidades </button> </h2>
+                <div id="collapse2" class="accordion-collapse collapse show" data-bs-parent="meuAccordion">
+                    <div class="accordion-body">
+                        <strong>Habilidades Técnicas:</strong>
+                        <br>
+                        Desenvolvimento de sistemas web e desktop.
+                        <br>
+                        Análise e levantamento de requisitos.
+                        <br>
+                        Modelagem de banco de dados.
+                        <br>
+                        SQL (MySQL, SQL Server).
+                        <br>
+                        Desenvolvimento de APIs REST.
+                        <br>
+                        Versionamento de código com Git e GitHub.
+                        <br>
+                        Testes de software e depuração (debugging).
+                        <br>
+                        Metodologias ágeis (Scrum e Kanban).
+                        <br>
+                        Engenharia de software.
+                        <br>
+                        Desenvolvimento front-end (HTML, CSS, JavaScript).
+                        <br>
+                        Desenvolvimento back-end.
+                        <br>
+                        Segurança da informação aplicada ao desenvolvimento
+                        <br>
+                        <br>
+                        <strong>Habilidades Comportamentais:</strong>
+                        <br>
+                        Resolução de problemas.
+                        <br>
+                        Trabalho em equipe.
+                        <br>
+                        Comunicação eficaz.
+                        <br>
+                        Organização e gestão de tarefas.
+                        <br>
+                        Adaptabilidade.
+                        <br>
+                        Proatividade.
+                        <br>
+                        <br>
+                        <strong>Linguagens e Tecnologias:</strong>
+                        <br>
+                        Java
+                        <br>
+                        Python
+                        <br>
+                        JavaScript
+                        <br>
+                        TypeScript
+                        <br>
+                        React
+                        <br>
+                        Node.js
+                        <br>
+
+</html>
+</div>
+</div>
+</div>
+</div>
+<div class="accordion" id="meuAccordion">
+    <div class="accordion-item">
+        <h2 class="accordion-header"> <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse3"> Formação Acadêmica </button> </h2>
+        <div id="collapse3" class="accordion-collapse collapse show" data-bs-parent="meuAccordion">
+            <div class="accordion-body">
+                <strong>Curso Técnico em Desenvolvimento de Sistemas
+                    SENAI:</strong>
+                <br>
+                Estudo de lógica de programação, desenvolvimento de software e banco de dados.
+                <br>
+                Desenvolvimento de projetos utilizando linguagens de programação e ferramentas de
+                desenvolvimento.
+                <br>
+                Conhecimentos em análise de sistemas, desenvolvimento web e boas práticas de programação.
+                <br>
+                Trabalho em projetos práticos e atividades colaborativas.
+                <br>
+                Gestão de Pessoas - Sebrae 2025-2025
+                <br>
+                Excel básico - Ead Senai 2025-2025
+                <br>
+                Segurança do Trabalho - Ead Senai 2025-2025
+                <br>
+                Segurança Cybernética - Ead Senai 2025-2025
+                <br>
+                <p>
+                    <br>
+                    <strong>Ensino Médio:</strong>
+                    <br>
+                    Pedro Torres: 1° ao 3° ano.
+                    <br>
+                    <br>
+                <p>
+                    <strong>Inglês:</strong> Efekta Level 15-Advanced - CEFR Level C1
+                    <br>
+                    <a href="https://learn.better.efekta.com/gap/ui/home">
+                        Venha entender mais sobre o que é a plataforma SPeak
+                    </a>
+                </p>
+
+                <strong>Ensino Fundamental:</strong>
+                <br>
+                Liceu Anglo Botucatu: 1° ao 9° ano.
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+<footer class="footer py-5 text-center" style="margin-top: 210px;">
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+
+        <div class="row justify-content-center w-100">
+
+            <div class="col-lg-6">
+
+                <h4 class="text-white fw-bold mb-3">✦ Contato</h4>
+
+                <p class="text-light opacity-75 mb-4">
+                    Email: livia.gaiani08@gmail.com
+                </p>
+
+                <div class="d-flex flex-wrap justify-content-center align-items-center gap-3">
+
+                    <a href="https://www.instagram.com/eilishrzx_?igsh=MWxvOHNtOTk2aHQ1eg==" class="social-icon">
+                        Instagram
+                    </a>
+
+                    <a href="https://www.facebook.com/share/1E4bRrHKwP/" class="social-icon">
+                        Facebook
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/lívia-moreira-684028412?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+                        class="social-icon">
+                        LinkedIn
+                    </a>
+
+                    <a href="https://wa.link/lalx14" class="social-icon">
+                        WhatsApp
+                    </a>
+
+                    <a href="https://github.com/me4ndth3devil" class="social-icon">
+                        GitHub
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</footer>
+
+</body>
