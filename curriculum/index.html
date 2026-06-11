@@ -224,6 +224,69 @@
             background: rgba(255, 255, 255, 0.3);
             transform: translateY(-5px);
         }
+
+        /* RESPONSIVIDADE */
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 991px) {
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .top-box {
+                padding: 20px;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .info-collapse img,
+            #verPerfil img {
+                width: 100%;
+                height: auto;
+            }
+
+            .footer {
+                margin-top: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .top-box .d-flex {
+                flex-direction: column;
+                align-items: stretch !important;
+            }
+
+            .top-box .btn,
+            .dropdown button {
+                width: 100%;
+            }
+
+            .accordion-button {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+
+            .social-icon {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer h4 {
+                font-size: 1.4rem;
+            }
+
+            .footer p {
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 
